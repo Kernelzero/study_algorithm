@@ -41,6 +41,17 @@
 
 [코드업 기초100제](https://www.codeup.kr/problemsetsol.php?psid=23) // c언어지만 자바로 제출해서 채점을 해보자.
 
+```java
+// 헬로 찍는 예제이다. 메인클래스부터 메인펑션까지 만들어줘야 함.
+// 오랫만에 자바를 썼더니 세미콜론 찍는걸 까먹어서 컴파일 오류남 ㅋ
+public class Main {
+	public static void main(String[] args) {
+        System.out.println("Hello");
+    }
+}
+
+```
+
 
 문제 유형을 정해서 가장 만만한 순서대로 푼다.
 위의 책에서 권장하는 순서는 아래와 같음
