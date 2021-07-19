@@ -45,7 +45,7 @@
 // 헬로 찍는 예제이다. 메인클래스부터 메인펑션까지 만들어줘야 함.
 // 오랫만에 자바를 썼더니 세미콜론 찍는걸 까먹어서 컴파일 오류남 ㅋ
 public class Main {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("Hello");
     }
 }
