@@ -1,0 +1,40 @@
+import Foundation
+
+// input
+var input = readLine();
+var inputs = [String]()
+if let input = input {
+    inputs = input.components(separatedBy:" ")
+}
+
+var A: Int = Int(inputs[0]) ?? 0
+var B: Int = Int(inputs[1]) ?? 0
+var C: Int = Int(inputs[2]) ?? 0
+
+
+func add<T:BinaryInteger> (_ a:T, _ b:T) -> T {
+    return a+b
+}
+
+func div<T:BinaryInteger> (_ a:T, _ b:T) -> T {
+    return a % b
+}
+
+func mul<T:BinaryInteger> (_ a:T, _ b:T) -> T {
+    return a*b
+}
+
+// 첫째 줄에 (A+B)%C,
+// 둘째 줄에 ((A%C) + (B%C))%C,
+// 셋째 줄에 (A×B)%C,
+// 넷째 줄에 ((A%C) × (B%C))%C를 출력한다.
+
+let line1 = div(add(A, B) ,C)
+let line2 = div(add(div(A,C), div(B,C)), C)
+let line3 = div(mul(A,B), C)
+let line4 = div(mul(div(A,C), div(B,C)), C)
+
+print(line1)
+print(line2)
+print(line3)
+print(line4)
