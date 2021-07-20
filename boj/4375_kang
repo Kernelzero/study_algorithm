@@ -1,0 +1,81 @@
+//문제: 2와 5로 나누어 떨어지지 않는 정수 n(1 ≤ n ≤ 10000)가 주어졌을 때, 1로만 이루어진 n의 배수를 찾는 프로그램을 작성하시오.
+//입력: 입력은 여러 개의 테스트 케이스로 이루어져 있다. 각 테스트 케이스는 한 줄로 이루어져 있고, n이 주어진다.
+//출력: 1로 이루어진 n의 배수 중 가장 작은 수의 자리수를 출력한다.
+
+
+// 무슨 말인지 몰라서 한참을 문제를 봐도 몰라서 살짝 검색해봤음.
+// n의 배수중 1로만 이루어진 숫자를 찾는거다 예) 1, 11, 111, 1111 ... 
+
+
+solution2()
+
+/*
+func solution() {
+    
+    var inputs = [Int]()
+    // 입력을 여러줄 받는다.
+    while let line = readLine() {
+        
+        if line == "" {
+            break
+        }
+        
+        let input = Int(line)!
+        inputs.append(input)
+    }
+        
+    for input in inputs {
+        
+        var target = "1"
+        
+        if input%2 == 0 || input%5 == 0{
+            return
+        }
+        
+        while true {
+            let targetNum = Int(target)!
+            if targetNum % input == 0 {
+                print(target.count)
+                target = "1"
+                break
+            }
+            target.append("1")
+        }
+    }
+}
+*/
+// 이렇게 하면, 나눠지는 수(111...) 가 너무 커져서 오버플로우가 발생한다.
+// 모듈러 연산을 통해서 해결해야 하는 문제임.
+
+// m = (m * 10 ) + 1
+// 예를들어 입력된 숫자가 3이면
+// 1, 11, 111 을 차례대로 계산하게 될거다.
+// 11%3 == 2%3 과 같다.
+
+
+func solution2() {
+    
+    // 입력을 여러줄 받는다.
+    while let line = readLine() {
+        
+        if line == "" {
+            break
+        }
+
+        let input = Int(line)!
+        var target = 1
+        var count = 0
+        
+        if input%2 == 0 || input%5 == 0 { return }
+        
+        while true {
+            count += 1
+            if target % input == 0 {
+                print(count)
+                break
+            }
+            target = target * 10 + 1
+            target %= input // 핵심이다.
+        }
+    }
+}
